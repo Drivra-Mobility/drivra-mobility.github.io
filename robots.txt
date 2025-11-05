@@ -5,6 +5,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://www.yourwebsite.com/sitemap.xml
-
-# Note: Replace www.yourwebsite.com with your actual domain name
+Sitemap: https://drivra.com.np/sitemap.xml

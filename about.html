@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Yango X Drivra - Empowering drivers across Nepal with flexible earning opportunities through technology and support.">
+    <meta name="keywords" content="Yango Nepal, Drivra Mobility, About Yango, Ride-hailing Nepal, Driver partners Nepal">
+    <meta name="author" content="Yango X Drivra">
+    <title>About Us | Yango X Drivra</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+    
+    <!-- Nepali Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="./assets/drivralogo.png" alt="Drivra Mobility" class="logo">
+                </a>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" data-translate="home">Home</a></li>
+                <li><a href="about.html" class="active" data-translate="about">About Us</a></li>
+                <li class="language-toggle">
+                    <button class="active" onclick="toggleLanguage('en')">EN</button>
+                    <button onclick="toggleLanguage('ne')">नेपाली</button>
+                </li>
+                <li><a href="tel:+9779768601859" class="phone-btn"><span data-translate="callUs">📞 Call Us</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="section-title">
+                <h1>Drivra Mobility</h1>
+                <p data-translate="empowering">Empowering drivers across Nepal with flexible earning opportunities</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-content">
+        <div class="container">
+            <div class="about-section">
+
+                <div class="about-card">
+                    <!-- <h2 style="color: var(--primary-green); margin-bottom: 1rem;" data-translate="aboutDrivraTitle">About Drivra Mobility</h2> -->
+                    <p>
+                        Drivra Mobility is a leading transportation solutions partner in Nepal, committed to revolutionizing how people move and earn in the mobility sector. As an official partner of Yango, we facilitate driver recruitment, provide local support, and ensure seamless operations across Nepal.
+                    </p>
+                    <p>
+                        Our mission is to empower individuals with flexible earning opportunities while contributing to better transportation infrastructure in Nepal. We understand the local market, driver needs, and passenger expectations, making us the ideal bridge between global technology and local execution.
+                    </p>
+                    <p>
+                        Beyond driver recruitment, Drivra Mobility is innovating mobility solutions to enhance urban transportation in Nepal, always with a focus on sustainability, efficiency, and community impact.
+                    </p>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <h2 data-translate="wantToDrive">Want to Drive with Yango?</h2>
+            <p data-translate="joinCommunity">Join our growing community of successful drivers</p>
+            <a href="index.html#registration-form" class="cta-primary" data-translate="applyNow">Apply Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Yango X Drivra</h3>
+                <p style="color: rgba(255,255,255,0.7);" data-translate="empowering">Empowering drivers across Nepal with flexible earning opportunities through technology and support.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-translate="contact">Contact</h3>
+                <ul>
+                    <li><a href="tel:+977-9768601859">📞 +977-9768601859</a></li>
+                    <li><span data-translate="location">📍 Kathmandu, Nepal</span></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Our Location</h3>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14130.863663703625!2d85.31061547832032!3d27.700769237502043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb18fcb77fd4bd%3A0x58099a1deffed8d3!2sKathmandu%2044600%2C%20Nepal!5e0!3m2!1sen!2snp!4v1699000000000!5m2!1sen!2snp" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Yango X Drivra. <span data-translate="allRights">All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
