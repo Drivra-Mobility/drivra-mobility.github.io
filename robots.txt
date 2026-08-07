@@ -1,8 +1,0 @@
-# Yango X Drivra - Robots.txt
-# This file tells search engines which pages to crawl
-
-User-agent: *
-Allow: /
-
-# Sitemap location
-Sitemap: https://drivra.com.np/sitemap.xml
