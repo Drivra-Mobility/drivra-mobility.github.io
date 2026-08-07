@@ -123,7 +123,7 @@ export function renderVenture(v) {
     </section>`;
 }
 
-export function renderAbout(team) {
+export function renderAbout() {
   return `
     <section class="page-hero">
       <p class="hero-kicker">ABOUT DRIVRA</p>
@@ -132,28 +132,7 @@ export function renderAbout(team) {
     </section>
 
     <section class="venture-photo-section">
-      ${photoSlot("Team / office photo")}
-    </section>
-
-    <hr class="divider">
-
-    <section class="section">
-      <div class="section-head">
-        <h2 class="section-title">Team</h2>
-      </div>
-      <div class="team-grid">
-        ${team
-          .map(
-            (p) => `
-          <div class="team-card">
-            <div class="team-avatar">${p.initials}</div>
-            <h4 class="team-name">${p.name}</h4>
-            <p class="team-role">${p.role}</p>
-            <p class="team-bio">${p.bio}</p>
-          </div>`
-          )
-          .join("")}
-      </div>
+      ${photoSlot("Office photo")}
     </section>`;
 }
 

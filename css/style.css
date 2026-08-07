@@ -56,6 +56,8 @@
   --nav-pad: 14px 32px;
   --hero-pad: 96px 32px 72px;
   --section-pad: 72px 32px;
+
+  --content-max: 1280px;
 }
 
 @media (max-width: 800px) {
@@ -122,15 +124,20 @@ img {
 /* — header / nav — */
 
 .site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--nav-pad);
   border-bottom: 2px solid var(--color-divider);
   background: var(--color-bg);
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding: var(--nav-pad);
 }
 
 .brand {
@@ -246,6 +253,11 @@ img {
   .menu-toggle {
     display: flex;
   }
+}
+
+#app {
+  max-width: var(--content-max);
+  margin-inline: auto;
 }
 
 .mobile-menu[hidden] {
@@ -835,6 +847,8 @@ img {
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
   margin-bottom: 32px;
+  max-width: var(--content-max);
+  margin-inline: auto;
 }
 
 @media (max-width: 800px) {
@@ -876,6 +890,8 @@ img {
 }
 
 .footer-bottom {
+  max-width: var(--content-max);
+  margin-inline: auto;
   border-top: 1px solid var(--color-divider);
   padding-top: 20px;
   font-size: 12px;
