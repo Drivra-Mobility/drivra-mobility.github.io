@@ -61,11 +61,38 @@ function observeReveals() {
   app.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 }
 
+function attachCardEffects() {
+  app.querySelectorAll(".venture-card, .team-card").forEach((card) => {
+    card.addEventListener("mousemove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      card.style.setProperty("--mx", `${(x / rect.width) * 100}%`);
+      card.style.setProperty("--my", `${(y / rect.height) * 100}%`);
+
+      if (card.classList.contains("venture-card")) {
+        const rotateY = ((x / rect.width) - 0.5) * 8;
+        const rotateX = (0.5 - y / rect.height) * 8;
+        card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+      }
+    });
+
+    card.addEventListener("mouseleave", () => {
+      if (card.classList.contains("venture-card")) {
+        card.style.transform = "";
+      }
+    });
+  });
+}
+
 function setActiveNav(page) {
   document.querySelectorAll("[data-page]").forEach((el) => {
     el.classList.toggle("is-active", el.dataset.page === page);
   });
   venturesToggle.classList.toggle("is-active", page === "venture");
+
+  const active = document.querySelector(".nav-links .is-active");
+  if (active) moveNavIndicator(active);
 }
 
 function titleFor(route, venture) {
@@ -113,6 +140,7 @@ function render() {
   closeMenus();
   window.scrollTo(0, 0);
   observeReveals();
+  attachCardEffects();
 }
 
 venturesToggle.addEventListener("click", () => {
@@ -140,10 +168,32 @@ window.addEventListener("hashchange", render);
 document.documentElement.classList.add("js-reveal");
 
 const siteHeader = document.querySelector(".site-header");
+const scrollProgress = document.getElementById("scroll-progress");
 function updateHeaderScrollState() {
   siteHeader.classList.toggle("is-scrolled", window.scrollY > 8);
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+  scrollProgress.style.width = `${pct}%`;
 }
 window.addEventListener("scroll", updateHeaderScrollState, { passive: true });
+
+const navIndicator = document.getElementById("nav-indicator");
+const navLinksEl = document.querySelector(".nav-links");
+function moveNavIndicator(target) {
+  if (!target) return;
+  const navRect = navLinksEl.getBoundingClientRect();
+  const rect = target.getBoundingClientRect();
+  navIndicator.style.width = `${rect.width}px`;
+  navIndicator.style.transform = `translateX(${rect.left - navRect.left}px)`;
+}
+navLinksEl.querySelectorAll(":scope > a, :scope > .nav-dropdown > button").forEach((el) => {
+  el.addEventListener("mouseenter", () => moveNavIndicator(el));
+});
+navLinksEl.addEventListener("mouseleave", () => {
+  const active = navLinksEl.querySelector(".is-active");
+  if (active) moveNavIndicator(active);
+  else navIndicator.style.opacity = "0";
+});
 
 populateNav();
 render();

@@ -29,7 +29,9 @@ export function renderHome(ventures) {
           <a href="#/contact" class="btn btn-secondary">Partner with us</a>
         </div>
       </div>
-      ${photoSlot("Fleet / rider photo", "reveal")}
+      <div class="hero-visual reveal">
+        <img src="assets/hero-fleet.png" alt="Truck, motorcycle, sedan and van from the Drivra Mobility fleet" loading="lazy">
+      </div>
     </section>
 
     <section class="section">
