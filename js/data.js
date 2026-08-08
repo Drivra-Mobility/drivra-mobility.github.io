@@ -29,11 +29,33 @@ export const VENTURES = [
     id: "finance",
     category: "TECHNOLOGY",
     name: "Drivra Finance",
-    tagline: "Rent-to-own financing for mobility.",
-    body: "Our mobility fintech platform is in development. It's designed to give drivers a path to owning their vehicle through structured rent-to-own financing, rather than a lump-sum purchase.",
+    tagline: "Drive-to-own financing for mobility.",
+    body: "Our mobility fintech platform is in development. It's designed to give drivers a path to owning their vehicle through structured drive-to-own financing, rather than a lump-sum purchase — drive on the platform, make structured payments, and own the vehicle at the end of the term.",
     audienceFor: ["Drivers who want to own a vehicle over time", "Financing partners"],
     tag: "In development",
     photoPlaceholder: "Driver / handshake photo",
+    driveToOwn: {
+      steps: [
+        {
+          title: "Apply",
+          body: "Tell us about yourself and the vehicle you want to drive. It takes a few minutes.",
+        },
+        {
+          title: "Get approved",
+          body: "We review your application and driving history, and set up a payment plan that fits.",
+        },
+        {
+          title: "Drive toward ownership",
+          body: "Make structured weekly or monthly payments while you drive. The vehicle is yours once the term is complete.",
+        },
+      ],
+      highlights: [
+        "No lump-sum purchase — pay as you drive",
+        "Structured, predictable weekly or monthly payments",
+        "Full ownership of the vehicle at the end of the term",
+        "Vehicle maintenance support during the payment term",
+      ],
+    },
   },
   {
     id: "trading",
@@ -57,12 +79,6 @@ export const VENTURES = [
 
 export const TEAM = [
   {
-    name: "Sandeep Sharma",
-    role: "Co-founder",
-    initials: "SS",
-    bio: "Educator, engineer and entrepreneur with leadership experience across education, technology, mobility and venture building.",
-  },
-  {
     name: "Ayush Subedi",
     role: "Co-founder",
     initials: "AS",
@@ -79,11 +95,5 @@ export const TEAM = [
     role: "Co-founder",
     initials: "SK",
     bio: "Founder of four driving centers across Kathmandu, with extensive expertise in driver training, licensing, recruitment and fleet operations.",
-  },
-  {
-    name: "Salina Sharma",
-    role: "CEO",
-    initials: "SS",
-    bio: "MBA with 10+ years of experience in project management, business development and organizational leadership.",
   },
 ];

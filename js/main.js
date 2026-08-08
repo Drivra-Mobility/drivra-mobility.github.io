@@ -45,6 +45,22 @@ function closeMenus() {
   menuToggle.setAttribute("aria-expanded", "false");
 }
 
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+);
+
+function observeReveals() {
+  app.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+}
+
 function setActiveNav(page) {
   document.querySelectorAll("[data-page]").forEach((el) => {
     el.classList.toggle("is-active", el.dataset.page === page);
@@ -96,6 +112,7 @@ function render() {
   setActiveNav(route.page);
   closeMenus();
   window.scrollTo(0, 0);
+  observeReveals();
 }
 
 venturesToggle.addEventListener("click", () => {
@@ -120,5 +137,14 @@ document.addEventListener("click", (event) => {
 
 window.addEventListener("hashchange", render);
 
+document.documentElement.classList.add("js-reveal");
+
+const siteHeader = document.querySelector(".site-header");
+function updateHeaderScrollState() {
+  siteHeader.classList.toggle("is-scrolled", window.scrollY > 8);
+}
+window.addEventListener("scroll", updateHeaderScrollState, { passive: true });
+
 populateNav();
 render();
+updateHeaderScrollState();
