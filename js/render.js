@@ -10,12 +10,18 @@ function photoSlot(placeholder, extraClass = "", photo = "") {
 }
 
 function ventureCard(v, i) {
+  const photo = v.photo
+    ? `<div class="card-photo"><img src="${v.photo}" alt="${v.name}" loading="lazy"></div>`
+    : "";
   return `
     <a href="#/ventures/${v.id}" class="venture-card reveal" style="transition-delay:${i * 70}ms">
-      <span class="card-kicker">${v.category}</span>
-      <h3 class="card-title">${v.name}</h3>
-      <p class="card-body">${v.tagline}</p>
-      <span class="card-link">Learn more →</span>
+      ${photo}
+      <div class="venture-card-body">
+        <span class="card-kicker">${v.category}</span>
+        <h3 class="card-title">${v.name}</h3>
+        <p class="card-body">${v.tagline}</p>
+        <span class="card-link">Learn more →</span>
+      </div>
     </a>`;
 }
 
@@ -157,7 +163,17 @@ export function renderVenture(v) {
     ${driveToOwn}`;
 }
 
-export function renderAbout() {
+function teamCard(member, i) {
+  return `
+    <div class="team-card reveal" style="transition-delay:${i * 70}ms">
+      <div class="team-avatar">${member.initials}</div>
+      <h3 class="team-name">${member.name}</h3>
+      <p class="team-role">${member.role}</p>
+      <p class="team-bio">${member.bio}</p>
+    </div>`;
+}
+
+export function renderAbout(team = []) {
   return `
     <section class="page-hero reveal">
       <p class="hero-kicker">ABOUT DRIVRA</p>
@@ -165,8 +181,14 @@ export function renderAbout() {
       <p class="hero-body">Our vision is to build Nepal's leading mobility infrastructure company, enabling ride-hailing, delivery, logistics, EV fleets and future transportation services through technology, operations and strategic partnerships.</p>
     </section>
 
-    <section class="venture-photo-section">
-      ${photoSlot("Office photo", "reveal")}
+    <section class="section">
+      <div class="section-head reveal">
+        <h2 class="section-title">Who's building it</h2>
+        <p class="section-sub">The team behind Drivra Mobility.</p>
+      </div>
+      <div class="team-grid">
+        ${team.map(teamCard).join("")}
+      </div>
     </section>`;
 }
 

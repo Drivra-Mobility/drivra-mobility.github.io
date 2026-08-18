@@ -1,4 +1,4 @@
-import { VENTURES } from "./data.js";
+import { VENTURES, TEAM } from "./data.js";
 import { renderHome, renderVenture, renderAbout, renderCareers, renderContact } from "./render.js";
 
 const app = document.getElementById("app");
@@ -123,7 +123,7 @@ function render() {
       app.innerHTML = renderVenture(venture);
       break;
     case "about":
-      app.innerHTML = renderAbout();
+      app.innerHTML = renderAbout(TEAM);
       break;
     case "careers":
       app.innerHTML = renderCareers();
