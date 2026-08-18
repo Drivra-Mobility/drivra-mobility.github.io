@@ -12,6 +12,7 @@ export const VENTURES = [
       "Ride-hailing platforms seeking a local operating partner",
     ],
     photoPlaceholder: "Fleet / rider photo",
+    photo: "assets/fleet.jpg",
   },
   {
     id: "logistics",
@@ -24,6 +25,7 @@ export const VENTURES = [
       "Delivery riders looking for work",
     ],
     photoPlaceholder: "Delivery rider photo",
+    photo: "assets/logistics.jpg",
   },
   {
     id: "finance",
@@ -34,6 +36,7 @@ export const VENTURES = [
     audienceFor: ["Drivers who want to own a vehicle over time", "Financing partners"],
     tag: "In development",
     photoPlaceholder: "Driver / handshake photo",
+    photo: "assets/finance.jpg",
     driveToOwn: {
       steps: [
         {
@@ -65,6 +68,7 @@ export const VENTURES = [
     body: "We source and trade vehicles, including electric vehicles, bringing new options to the Nepali market and supporting the transition to electric mobility.",
     audienceFor: ["Dealerships and fleet buyers", "Import and export partners"],
     photoPlaceholder: "Vehicle lot photo",
+    photo: "assets/trading.jpg",
   },
   {
     id: "charge",
@@ -74,6 +78,7 @@ export const VENTURES = [
     body: "We build and operate charging stations that keep our electric fleet, and the wider EV community, powered and on the road.",
     audienceFor: ["EV fleet operators", "EV riders and owners"],
     photoPlaceholder: "Charging station photo",
+    photo: "assets/charge.jpg",
   },
 ];
 

@@ -570,6 +570,14 @@ img {
   transform: scale(1.04);
 }
 
+.photo-slot-filled {
+  filter: none;
+}
+
+.photo-slot-filled img {
+  object-fit: cover;
+}
+
 .hero-visual {
   position: relative;
   display: flex;

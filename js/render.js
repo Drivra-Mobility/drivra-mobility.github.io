@@ -1,9 +1,11 @@
 // HTML templates for each route. Pure functions: data in, markup out.
 
-function photoSlot(placeholder, extraClass = "") {
+function photoSlot(placeholder, extraClass = "", photo = "") {
+  const src = photo || "assets/logo.png";
+  const cls = photo ? `photo-slot photo-slot-filled ${extraClass}` : `photo-slot ${extraClass}`;
   return `
-    <div class="photo-slot ${extraClass}">
-      <img src="assets/logo.png" alt="${placeholder}" loading="lazy">
+    <div class="${cls}">
+      <img src="${src}" alt="${placeholder}" loading="lazy">
     </div>`;
 }
 
@@ -136,7 +138,7 @@ export function renderVenture(v) {
     </section>
 
     <section class="venture-photo-section">
-      ${photoSlot(v.photoPlaceholder, "reveal")}
+      ${photoSlot(v.photoPlaceholder, "reveal", v.photo)}
     </section>
 
     <section class="section">
