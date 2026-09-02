@@ -224,7 +224,7 @@ export function renderContact() {
         </div>
         <div class="map-container reveal" style="transition-delay:70ms">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14130.863663703625!2d85.31061547832032!3d27.700769237502043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb18fcb77fd4bd%3A0x58099a1deffed8d3!2sKathmandu%2044600%2C%20Nepal!5e0!3m2!1sen!2snp!4v1699000000000!5m2!1sen!2snp"
+            src="https://www.google.com/maps?q=27.725153866044774,85.33718287246091&z=17&output=embed"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             class="embed-frame map-frame"></iframe>
