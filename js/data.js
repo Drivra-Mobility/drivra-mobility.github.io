@@ -72,7 +72,7 @@ export const VENTURES = [
   },
   {
     id: "charge",
-    category: "TRADING",
+    category: "INFRASTRUCTURE",
     name: "Drivra Charge",
     tagline: "Charging infrastructure for electric fleets.",
     body: "We build and operate charging stations that keep our electric fleet, and the wider EV community, powered and on the road.",
@@ -100,5 +100,17 @@ export const TEAM = [
     role: "Co-founder",
     initials: "SK",
     bio: "Founder of four driving centers across Kathmandu, with extensive expertise in driver training, licensing, recruitment and fleet operations.",
+  },
+  {
+    name: "Sandeep Sharma",
+    role: "Co-founder",
+    initials: "SS",
+    bio: "Educator, engineer, and entrepreneur with leadership experience across education, technology, mobility, and venture building, focused on scaling high-growth businesses.",
+  },
+  {
+    name: "Salina Sharma",
+    role: "CEO",
+    initials: "SS",
+    bio: "MBA with 10+ years of experience in project management, business development, and organizational leadership, driving execution and strategic growth.",
   },
 ];

@@ -33,7 +33,7 @@ export function renderHome(ventures) {
         <h1 class="hero-title">Nepal's mobility infrastructure, built end to end.</h1>
         <p class="hero-body">We operate fleets, build technology and trade vehicles — across ride-hailing, delivery, financing and electric mobility. One company, several ventures, all built for Nepal's roads.</p>
         <div class="hero-cta-row">
-          <a href="#/careers" class="btn btn-primary">See our ventures</a>
+          <a href="#ventures" class="btn btn-primary">See our ventures</a>
           <a href="#/contact" class="btn btn-secondary">Partner with us</a>
         </div>
       </div>
@@ -42,7 +42,7 @@ export function renderHome(ventures) {
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="ventures">
       <div class="section-head reveal">
         <h2 class="section-title">What we build</h2>
         <p class="section-sub">Five ventures, one mobility platform.</p>
@@ -86,21 +86,7 @@ export function renderHome(ventures) {
 }
 
 export function renderVenture(v) {
-  const cta =
-    v.id === "fleet"
-      ? `
-        <div class="cta-block">
-          <h3 class="subhead">Apply to drive</h3>
-          <p class="body-text">Fill out the form below and our team will reach out within 24-48 hours.</p>
-          <div class="form-container">
-            <iframe
-              src="https://forms.fleet.yango.com/forms?ref_id=d9da92d45ca44801bdc8cf556e853f08&specification=taxi"
-              title="Driver Registration Form"
-              loading="lazy"
-              class="embed-frame"></iframe>
-          </div>
-        </div>`
-      : `
+  const cta = `
         <div class="cta-block">
           <a href="#/contact" class="btn btn-primary">Get in touch</a>
         </div>`;

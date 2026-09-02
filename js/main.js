@@ -138,7 +138,11 @@ function render() {
   document.title = titleFor(route, venture);
   setActiveNav(route.page);
   closeMenus();
-  window.scrollTo(0, 0);
+  if (location.hash === "#ventures") {
+    document.getElementById("ventures")?.scrollIntoView();
+  } else {
+    window.scrollTo(0, 0);
+  }
   observeReveals();
   attachCardEffects();
 }
