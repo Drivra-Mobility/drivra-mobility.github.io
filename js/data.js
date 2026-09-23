@@ -57,6 +57,7 @@ export const VENTURES = [
         "Structured, predictable weekly or monthly payments",
         "Full ownership of the vehicle at the end of the term",
         "Vehicle maintenance support during the payment term",
+        "Eligibility informed by your driving activity and earnings history on the platform",
       ],
     },
   },

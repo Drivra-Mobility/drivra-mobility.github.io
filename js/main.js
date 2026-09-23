@@ -61,30 +61,6 @@ function observeReveals() {
   app.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 }
 
-function attachCardEffects() {
-  app.querySelectorAll(".venture-card, .team-card").forEach((card) => {
-    card.addEventListener("mousemove", (event) => {
-      const rect = card.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-      card.style.setProperty("--mx", `${(x / rect.width) * 100}%`);
-      card.style.setProperty("--my", `${(y / rect.height) * 100}%`);
-
-      if (card.classList.contains("venture-card")) {
-        const rotateY = ((x / rect.width) - 0.5) * 8;
-        const rotateX = (0.5 - y / rect.height) * 8;
-        card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
-      }
-    });
-
-    card.addEventListener("mouseleave", () => {
-      if (card.classList.contains("venture-card")) {
-        card.style.transform = "";
-      }
-    });
-  });
-}
-
 function setActiveNav(page) {
   document.querySelectorAll("[data-page]").forEach((el) => {
     el.classList.toggle("is-active", el.dataset.page === page);
@@ -144,7 +120,6 @@ function render() {
     window.scrollTo(0, 0);
   }
   observeReveals();
-  attachCardEffects();
 }
 
 venturesToggle.addEventListener("click", () => {
