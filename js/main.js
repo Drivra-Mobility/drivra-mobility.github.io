@@ -10,8 +10,8 @@ const mobileMenu = document.getElementById("mobile-menu");
 
 const SITE_NAME = "Drivra Mobility";
 
-function parseHash() {
-  const parts = (location.hash || "#/").slice(1).split("/").filter(Boolean);
+function parseLocation() {
+  const parts = location.pathname.split("/").filter(Boolean);
   if (parts[0] === "ventures" && parts[1]) return { page: "venture", ventureId: parts[1] };
   if (parts[0] === "about") return { page: "about" };
   if (parts[0] === "careers") return { page: "careers" };
@@ -22,18 +22,18 @@ function parseHash() {
 function populateNav() {
   venturesMenu.innerHTML = VENTURES.map(
     (v) => `
-    <a href="#/ventures/${v.id}" class="dropdown-item">
+    <a href="/ventures/${v.id}" class="dropdown-item">
       <span class="dropdown-item-kicker">${v.category}</span>
       <span>${v.name}</span>
     </a>`
   ).join("");
 
   document.getElementById("mobile-ventures").innerHTML = VENTURES.map(
-    (v) => `<a href="#/ventures/${v.id}" class="sub-link">${v.name}</a>`
+    (v) => `<a href="/ventures/${v.id}" class="sub-link">${v.name}</a>`
   ).join("");
 
   document.getElementById("footer-ventures").innerHTML = VENTURES.map(
-    (v) => `<a href="#/ventures/${v.id}" class="footer-link">${v.name}</a>`
+    (v) => `<a href="/ventures/${v.id}" class="footer-link">${v.name}</a>`
   ).join("");
 }
 
@@ -86,9 +86,44 @@ function titleFor(route, venture) {
   }
 }
 
+function truncate(text, max) {
+  return text.length <= max ? text : `${text.slice(0, max - 1).trimEnd()}…`;
+}
+
+function descriptionFor(route, venture) {
+  switch (route.page) {
+    case "venture":
+      return truncate(`${venture.tagline} ${venture.body}`, 160);
+    case "about":
+      return "Our vision is to build Nepal's leading mobility infrastructure company, enabling ride-hailing, delivery, logistics, EV fleets and future transportation services through technology, operations and strategic partnerships.";
+    case "careers":
+      return "We're growing across every venture, from fleet operations to technology to trading. If you want to build mobility infrastructure for Nepal, we want to hear from you.";
+    case "contact":
+      return "Contact Drivra Mobility: office, phone and email details for Kathmandu, Nepal.";
+    default:
+      return "We operate fleets, build technology and trade vehicles across ride-hailing, delivery, financing and electric mobility. One company, several ventures, all built for Nepal's roads.";
+  }
+}
+
+function canonicalFor(route, venture) {
+  const base = "https://www.drivra.com.np";
+  switch (route.page) {
+    case "venture":
+      return `${base}/ventures/${venture.id}`;
+    case "about":
+      return `${base}/about`;
+    case "careers":
+      return `${base}/careers`;
+    case "contact":
+      return `${base}/contact`;
+    default:
+      return `${base}/`;
+  }
+}
+
 function render() {
-  const route = parseHash();
-  const ventures = VENTURES.map((v) => ({ ...v, href: `#/ventures/${v.id}` }));
+  const route = parseLocation();
+  const ventures = VENTURES.map((v) => ({ ...v, href: `/ventures/${v.id}` }));
   const venture =
     route.page === "venture"
       ? ventures.find((v) => v.id === route.ventureId) || ventures[0]
@@ -112,14 +147,18 @@ function render() {
   }
 
   document.title = titleFor(route, venture);
+  document.getElementById("meta-description").setAttribute("content", descriptionFor(route, venture));
+  document.getElementById("canonical-link").setAttribute("href", canonicalFor(route, venture));
   setActiveNav(route.page);
   closeMenus();
-  if (location.hash === "#ventures") {
-    document.getElementById("ventures")?.scrollIntoView();
-  } else {
-    window.scrollTo(0, 0);
-  }
+  window.scrollTo(0, 0);
   observeReveals();
+}
+
+function navigate(path) {
+  if (location.pathname === path) return;
+  history.pushState(null, "", path);
+  render();
 }
 
 venturesToggle.addEventListener("click", () => {
@@ -142,7 +181,18 @@ document.addEventListener("click", (event) => {
   }
 });
 
-window.addEventListener("hashchange", render);
+document.addEventListener("click", (event) => {
+  if (event.defaultPrevented || event.button !== 0) return;
+  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  const link = event.target.closest("a");
+  if (!link || link.target === "_blank") return;
+  const href = link.getAttribute("href");
+  if (!href || /^(#|https?:|mailto:|tel:)/.test(href)) return;
+  event.preventDefault();
+  navigate(href);
+});
+
+window.addEventListener("popstate", render);
 
 document.documentElement.classList.add("js-reveal");
 

@@ -1,7 +1,7 @@
 // HTML templates for each route. Pure functions: data in, markup out.
 
 function photoSlot(placeholder, extraClass = "", photo = "") {
-  const src = photo || "assets/logo.png";
+  const src = photo || "/assets/logo.png";
   const cls = photo ? `photo-slot photo-slot-filled ${extraClass}` : `photo-slot ${extraClass}`;
   return `
     <div class="${cls}">
@@ -14,7 +14,7 @@ function ventureCard(v, i) {
     ? `<div class="venture-row-media"><img src="${v.photo}" alt="${v.name}" loading="lazy"></div>`
     : "";
   return `
-    <a href="#/ventures/${v.id}" class="venture-row reveal" style="transition-delay:${i * 60}ms">
+    <a href="/ventures/${v.id}" class="venture-row reveal" style="transition-delay:${i * 60}ms">
       <span class="venture-row-index">${String(i + 1).padStart(2, "0")}</span>
       <div class="venture-row-main">
         <span class="card-kicker">${v.category}</span>
@@ -34,7 +34,7 @@ export function renderHome(ventures) {
         <p class="hero-body">We operate fleets, build technology and trade vehicles across ride-hailing, delivery, financing and electric mobility. One company, several ventures, all built for Nepal's roads.</p>
         <div class="hero-cta-row">
           <a href="#ventures" class="btn btn-primary">See our ventures</a>
-          <a href="#/contact" class="btn btn-secondary">Partner with us</a>
+          <a href="/contact" class="btn btn-secondary">Partner with us</a>
         </div>
       </div>
       <div class="hero-visual reveal">
@@ -133,7 +133,7 @@ export function renderHome(ventures) {
     <section class="poster reveal">
       <div class="poster-inner">
         <h2>Building Nepal's mobility infrastructure.</h2>
-        <a href="#/contact" class="btn">Get in touch</a>
+        <a href="/contact" class="btn">Get in touch</a>
       </div>
     </section>`;
 }
@@ -141,7 +141,7 @@ export function renderHome(ventures) {
 export function renderVenture(v) {
   const cta = `
         <div class="cta-block">
-          <a href="#/contact" class="btn btn-primary">Get in touch</a>
+          <a href="/contact" class="btn btn-primary">Get in touch</a>
         </div>`;
 
   const driveToOwn = v.driveToOwn
@@ -176,7 +176,7 @@ export function renderVenture(v) {
 
   return `
     <section class="venture-hero reveal">
-      <a href="#/" class="back-link">← All ventures</a>
+      <a href="/" class="back-link">← All ventures</a>
       <span class="hero-kicker">${v.category}</span>
       <h1 class="venture-title">${v.name}</h1>
       <p class="hero-body">${v.tagline}</p>
