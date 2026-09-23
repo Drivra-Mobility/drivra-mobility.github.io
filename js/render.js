@@ -30,9 +30,8 @@ export function renderHome(ventures) {
   return `
     <section class="home-hero">
       <div class="reveal">
-        <p class="hero-kicker">DRIVRA MOBILITY</p>
         <h1 class="hero-title">Nepal's mobility infrastructure, built end to end.</h1>
-        <p class="hero-body">We operate fleets, build technology and trade vehicles — across ride-hailing, delivery, financing and electric mobility. One company, several ventures, all built for Nepal's roads.</p>
+        <p class="hero-body">We operate fleets, build technology and trade vehicles across ride-hailing, delivery, financing and electric mobility. One company, several ventures, all built for Nepal's roads.</p>
         <div class="hero-cta-row">
           <a href="#ventures" class="btn btn-primary">See our ventures</a>
           <a href="#/contact" class="btn btn-secondary">Partner with us</a>
@@ -114,18 +113,18 @@ export function renderHome(ventures) {
           <h4>Operations</h4>
           <p>Fleet operation</p>
           <p>Ride-hailing partner network</p>
+          <p>Drivra Express delivery operations</p>
         </div>
         <div class="mission-col reveal" style="transition-delay:60ms">
           <span class="mission-index">02</span>
           <h4>Technology</h4>
           <p>Fleet management systems</p>
-          <p>Delivery &amp; logistics technology</p>
-          <p>Mobility fintech</p>
+          <p>Rent-to-own financing</p>
         </div>
         <div class="mission-col reveal" style="transition-delay:120ms">
           <span class="mission-index">03</span>
           <h4>Trading</h4>
-          <p>Vehicle import &amp; export</p>
+          <p>Vehicle import</p>
           <p>Charging stations</p>
         </div>
       </div>
@@ -188,7 +187,7 @@ export function renderVenture(v) {
       ${photoSlot(v.photoPlaceholder, "reveal", v.photo)}
     </section>
 
-    <section class="section venture-body-section">
+    <section class="section section-tight">
       <div class="venture-body-grid">
         <div class="reveal">
           <h3 class="subhead">What it is</h3>
@@ -208,7 +207,6 @@ function teamCard(member, i) {
   return `
     <div class="team-row reveal" style="transition-delay:${i * 60}ms">
       <div>
-        <p class="team-mark">${member.initials}</p>
         <h3 class="team-name">${member.name}</h3>
         <p class="team-role">${member.role}</p>
       </div>
@@ -219,7 +217,6 @@ function teamCard(member, i) {
 export function renderAbout(team = []) {
   return `
     <section class="page-hero reveal">
-      <p class="hero-kicker">ABOUT DRIVRA</p>
       <h1 class="page-title">Our vision</h1>
       <p class="hero-body">Our vision is to build Nepal's leading mobility infrastructure company, enabling ride-hailing, delivery, logistics, EV fleets and future transportation services through technology, operations and strategic partnerships.</p>
     </section>
@@ -240,19 +237,12 @@ export function renderAbout(team = []) {
 export function renderCareers() {
   return `
     <section class="page-hero reveal">
-      <p class="hero-kicker">CAREERS</p>
       <h1 class="page-title">Build with us</h1>
-      <p class="hero-body">We're growing across every venture — from fleet operations to technology to trading. If you want to build mobility infrastructure for Nepal, we want to hear from you.</p>
+      <p class="hero-body">We're growing across every venture, from fleet operations to technology to trading. If you want to build mobility infrastructure for Nepal, we want to hear from you.</p>
     </section>
 
-    <section class="section">
-      <div class="role-list reveal">
-        <span class="role-item">Driver partners</span>
-        <span class="role-item">Operations</span>
-        <span class="role-item">Engineering</span>
-        <span class="role-item">Business development</span>
-      </div>
-      <div class="cta-block reveal" style="transition-delay:60ms">
+    <section class="section section-tight">
+      <div class="cta-block reveal">
         <a href="mailto:salina0124@gmail.com" class="btn btn-primary">Send us your CV</a>
       </div>
     </section>`;
@@ -261,7 +251,6 @@ export function renderCareers() {
 export function renderContact() {
   return `
     <section class="page-hero reveal">
-      <p class="hero-kicker">CONTACT</p>
       <h1 class="page-title">Get in touch</h1>
     </section>
 
@@ -275,11 +264,8 @@ export function renderContact() {
           <p class="body-text"><a href="tel:+9779768601858" class="inline-link">+977-9768601858</a></p>
           <p class="body-text"><a href="tel:+9779768601859" class="inline-link">+977-9768601859</a></p>
 
-          <h3 class="subhead subhead-spaced">General &amp; careers</h3>
+          <h3 class="subhead subhead-spaced">Email</h3>
           <p class="body-text"><a href="mailto:salina0124@gmail.com" class="inline-link">salina0124@gmail.com</a></p>
-
-          <h3 class="subhead subhead-spaced">Partnerships &amp; investment</h3>
-          <p class="body-text"><a href="mailto:sandeep.sharma@adhyayan.edu.np" class="inline-link">sandeep.sharma@adhyayan.edu.np</a></p>
         </div>
         <div class="map-container reveal" style="transition-delay:70ms">
           <iframe

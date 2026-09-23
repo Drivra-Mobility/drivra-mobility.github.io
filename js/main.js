@@ -74,15 +74,15 @@ function setActiveNav(page) {
 function titleFor(route, venture) {
   switch (route.page) {
     case "venture":
-      return `${venture.name} — ${SITE_NAME}`;
+      return `${venture.name} | ${SITE_NAME}`;
     case "about":
-      return `About — ${SITE_NAME}`;
+      return `About | ${SITE_NAME}`;
     case "careers":
-      return `Careers — ${SITE_NAME}`;
+      return `Careers | ${SITE_NAME}`;
     case "contact":
-      return `Contact — ${SITE_NAME}`;
+      return `Contact | ${SITE_NAME}`;
     default:
-      return `${SITE_NAME} — Nepal's mobility infrastructure`;
+      return `${SITE_NAME} | Nepal's mobility infrastructure`;
   }
 }
 

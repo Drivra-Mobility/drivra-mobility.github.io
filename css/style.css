@@ -66,7 +66,7 @@
   --space-16: 96px;
 
   --nav-pad: 18px 32px;
-  --hero-pad: 88px 32px 96px;
+  --hero-pad: 64px 32px 56px;
   --section-pad: 88px 32px;
 
   --content-max: 1280px;
@@ -79,7 +79,7 @@
 
 @media (max-width: 1024px) {
   :root {
-    --hero-pad: 64px 28px 72px;
+    --hero-pad: 48px 28px 44px;
     --section-pad: 64px 28px;
   }
 }
@@ -87,7 +87,7 @@
 @media (max-width: 640px) {
   :root {
     --nav-pad: 14px 20px;
-    --hero-pad: 48px 20px 48px;
+    --hero-pad: 36px 20px 32px;
     --section-pad: 48px 20px;
   }
 }
@@ -923,20 +923,20 @@ img {
   }
 }
 
-.venture-body-section {
+.section-tight {
   padding-top: 56px;
   padding-bottom: 56px;
 }
 
 @media (max-width: 1024px) {
-  .venture-body-section {
+  .section-tight {
     padding-top: 48px;
     padding-bottom: 48px;
   }
 }
 
 @media (max-width: 640px) {
-  .venture-body-section {
+  .section-tight {
     padding-top: 36px;
     padding-bottom: 40px;
   }
@@ -1014,13 +1014,6 @@ img {
   }
 }
 
-.team-mark {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--color-faint);
-}
-
 .team-name {
   font-size: 19px;
   font-weight: 700;
@@ -1042,28 +1035,6 @@ img {
   margin: 0;
   line-height: 1.6;
   max-width: 52ch;
-}
-
-/* — careers roles — */
-
-.role-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: var(--space-12);
-  border-top: 1px solid var(--color-divider-strong);
-}
-
-.role-item {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  padding: 16px 22px 16px 0;
-  margin-right: 22px;
-  border-bottom: 1px solid var(--color-divider-strong);
-}
-
-.role-item:first-child {
-  padding-left: 0;
 }
 
 /* — contact — */
